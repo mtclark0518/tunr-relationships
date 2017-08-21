@@ -9,6 +9,10 @@ var Song = sequelize.import("./song");
 
 Song.belongsTo(Artist);
 Artist.hasMany(Song);
+Manager.hasMany(Artist);
+Artist.belongsTo(Manager);
+
+
 
 const db = <any>{};
 db.models = {

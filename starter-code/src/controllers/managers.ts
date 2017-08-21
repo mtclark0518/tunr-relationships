@@ -1,5 +1,6 @@
 import { db } from '../models';
 var Manager = db.models.Manager;
+var Artist = db.models.Artist;
 
 function index(req, res) {
 	Manager.findAll().then(function(managers) {
@@ -8,7 +9,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Manager.findById(req.params.id)
+  Manager.findById(req.params.id, {
+    include: Artist
+  })
   .then(function(manager){
     if(!manager) res.send(res, "not found");
     else res.json(manager);
