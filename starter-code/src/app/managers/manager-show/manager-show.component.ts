@@ -10,7 +10,7 @@ import { ManagersService } from '../managers.service';
 export class ManagerShowComponent implements OnInit {
 
 	oneManager;
-
+	showAd;
   constructor(
   	private route : ActivatedRoute,
   	private managersService : ManagersService

@@ -4,6 +4,7 @@ module.exports = function(sequelize, Sequelize) {
         email: Sequelize.STRING,
         office_number: Sequelize.STRING,
         cell_phone_number: Sequelize.STRING,
+        adId: Sequelize.INTEGER,
     });
     return model;
 };

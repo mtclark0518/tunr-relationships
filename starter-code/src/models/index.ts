@@ -1,16 +1,20 @@
 //Connect
 import * as Sequelize from 'sequelize';
 
-var sequelize = new Sequelize('postgres://TheTDrive@localhost:5432/tunr_relationships');
+const sequelize = new Sequelize('postgres://TheTDrive@localhost:5432/tunr_relationships');
 
-var Artist = sequelize.import("./artist");
-var Manager = sequelize.import("./manager");
-var Song = sequelize.import("./song");
+const Artist = sequelize.import("./artist");
+const Manager = sequelize.import("./manager");
+const Song = sequelize.import("./song");
+const Ad = sequelize.import('./ad');
 
-Song.belongsTo(Artist);
+
 Artist.hasMany(Song);
 Manager.hasMany(Artist);
+Manager.hasOne(Ad);
+Song.belongsTo(Artist);
 Artist.belongsTo(Manager);
+Ad.belongsTo(Manager);
 
 
 
@@ -18,7 +22,8 @@ const db = <any>{};
 db.models = {
 	Artist,
 	Manager,
-	Song
+	Song,
+	Ad
 };
 
 //Export models and Sequelize for seed and dbSetup

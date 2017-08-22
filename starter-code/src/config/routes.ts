@@ -5,7 +5,7 @@ import { managersController } from '../controllers/managers';
 import { songsController } from '../controllers/songs';
 
 //Artist Routes
-  
+
 // index
 router.get('/api/artists', artistsController.index);
 
@@ -31,6 +31,7 @@ router.post('/api/managers', managersController.create);
 
 // show
 router.get('/api/managers/:id', managersController.show);
+router.get('/api/managers/:id', managersController.showAd);
 
 // update
 router.put('/api/managers/:id', managersController.update);
